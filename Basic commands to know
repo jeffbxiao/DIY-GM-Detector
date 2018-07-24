@@ -1,0 +1,39 @@
+All commands go into the terminal (">_" symbol up top)
+
+For VNC Viewer:
+Type into the command terminal:
+sudo nano /etc/network/interfaces
+
+Type the following into the bottom of the resulting window:
+allow-hotplug usb0
+auto usb0
+iface usb0 inet static
+address 192.168.42.42
+netmask 255.255.255.0
+network 192.168.42.0
+broadcast 192.168.42.255
+
+Connect the Android phone via usb to the Raspberry Pi 
+Go to the Android settings and turn on USB tethering.
+Open VNC Viewer app on the Android phone and add a new 
+device using the "+" symbol and set the IP to 192.168.42.42
+Connect the device. If prompted, the username is Pi, 
+the password is Raspberry
+
+
+
+
+for bluetooth:
+sudo bluetoothctl
+agent on
+default-agent
+scan on
+find the Raspberry Pi code next to Controller 
+Will look like XX:XX:XX:XX:XX:XX
+Remember this code, you will need it for the Android app
+
+To run the Bluetooth enabled automated data:
+cd /home/pi/Documents/Python_Code
+sudo python Geiger_Auto.py
+
+ 
